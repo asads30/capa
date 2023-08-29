@@ -1,5 +1,6 @@
 import { SplashScreen } from '@capacitor/splash-screen';
 import { Camera } from '@capacitor/camera';
+import { Share } from '@capacitor/share';
 
 window.customElements.define(
   'capacitor-welcome',
@@ -82,6 +83,9 @@ window.customElements.define(
           <button class="button" id="take-photo">Take Photo</button>
         </p>
         <p>
+          <button class="button" id="take-share">Take Share</button>
+        </p>
+        <p>
           <img id="image" style="max-width: 100%">
         </p>
       </main>
@@ -107,6 +111,15 @@ window.customElements.define(
         } catch (e) {
           console.warn('User cancelled', e);
         }
+      });
+
+      self.shadowRoot.querySelector('#take-share').addEventListener('click', async function (e) {
+        await Share.share({
+          title: 'See cool stuff',
+          text: 'Really awesome thing you need to see right meow',
+          url: 'http://ionicframework.com/',
+          dialogTitle: 'Share with buddies',
+        });
       });
     }
   }
