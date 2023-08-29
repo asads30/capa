@@ -1,0 +1,11 @@
+{
+  "appId": "com.example.app",
+  "appName": "mobileapp",
+  "bundledWebRuntime": false,
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  }
+}
